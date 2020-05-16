@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ApiFilmowe.Modele
+namespace ClientAPI.Models
 {
-    public partial class Rezyser
+    public class Rezyser
     {
         public Rezyser()
         {
