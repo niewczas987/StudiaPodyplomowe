@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+
 namespace ApiFilmowe
 {
     public class Startup
@@ -27,6 +28,17 @@ namespace ApiFilmowe
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BazaFilmowaContext>();
+            services.AddSwaggerGen(c => 
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "FilmoweAPI",
+                    Version = "v1",
+                    Description = "Pierwsze API z dokumentacj¹",
+                    Contact = new Microsoft.OpenApi.Models.OpenApiContact() { Name = "Kacper Niewczas", Email = "niewczas987@gmail.com" }
+                });
+                c.IncludeXmlComments(@"C:\\Users\kniewczas\source\repos\StudiaPodyplomowe\ApiFilmowe\ApiFilmowe.xml");
+            });
             services.AddControllers();
         }
 
@@ -37,6 +49,9 @@ namespace ApiFilmowe
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Filmowe API v1"); });
 
             app.UseHttpsRedirection();
 

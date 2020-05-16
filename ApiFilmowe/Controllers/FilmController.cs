@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApiFilmowe.Modele;
+using Microsoft.Extensions.Logging;
 
 namespace ApiFilmowe.Controllers
 {
@@ -14,10 +15,12 @@ namespace ApiFilmowe.Controllers
     public class FilmController : ControllerBase
     {
         private readonly BazaFilmowaContext _context;
+        private readonly ILogger _logger;
 
-        public FilmController(BazaFilmowaContext context)
+        public FilmController(BazaFilmowaContext context, ILogger<FilmController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/Film
@@ -28,13 +31,20 @@ namespace ApiFilmowe.Controllers
         }
 
         // GET: api/Film/5
+        /// <summary>
+        /// Pobierz film o danym id
+        /// </summary>
+        /// <param name="id">ID filmu</param>
+        /// <returns>Dane filmu w postaci klasy Film</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Film>> GetFilm(long id)
         {
+            _logger.LogInformation($"Wywołanie zapytania o film o ID :{id}");
             var film = await _context.Film.FindAsync(id);
 
             if (film == null)
             {
+                _logger.LogWarning("Nie ma filmu o ID: " + id);
                 return NotFound();
             }
 
