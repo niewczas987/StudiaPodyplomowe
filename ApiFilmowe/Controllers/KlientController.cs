@@ -37,6 +37,7 @@ namespace ApiFilmowe.Controllers
             {
                 return NotFound();
             }
+            klient.Adres = await _context.Adres.FindAsync(klient.AdresId);
 
             return klient;
         }

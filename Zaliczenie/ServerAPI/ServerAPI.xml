@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ServerAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ServerAPI.Controllers.EmployeeDepartmentController.GetEmployeeDepartment">
+            <summary>
+            Pobierz listę EmployeeDepartment
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeDepartmentController.GetEmployeeDepartment(System.Int64)">
+            <summary>
+            Pobierz EmployeeDepartment o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeDepartmentController.PostEmployeeDepartment(ServerAPI.Models.EmployeeDepartment)">
+            <summary>
+            Dodaj do listy EmployeeDepartment
+            </summary>
+            <param name="employeeDepartment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeDepartmentController.DeleteEmployeeDepartment(System.Int64)">
+            <summary>
+            Usuń z listy EmployeeDepartment
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeGradeController.GetEmployeeGrade">
+            <summary>
+            Pobierz listę EmployeeGrade
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeGradeController.GetEmployeeGrade(System.Int64)">
+            <summary>
+            Pobierz EmployeeGrade o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeGradeController.PostEmployeeGrade(ServerAPI.Models.EmployeeGrade)">
+            <summary>
+            Dodaj do listy EmployeeGrade
+            </summary>
+            <param name="employeeGrade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeGradeController.DeleteEmployeeGrade(System.Int64)">
+            <summary>
+            Usuń z listy EmployeeGrade
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeePositionController.GetEmployeePosition">
+            <summary>
+            Pobierz listę EmployeePosition
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeePositionController.GetEmployeePosition(System.Int64)">
+            <summary>
+            Pobierz EmployeePosition o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeePositionController.PostEmployeePosition(ServerAPI.Models.EmployeePosition)">
+            <summary>
+            Dodaj do listy EmployeePosition
+            </summary>
+            <param name="employeePosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeePositionController.DeleteEmployeePosition(System.Int64)">
+            <summary>
+            Usuń z listy EmployeePosition
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeRiseController.GetEmployeeRise">
+            <summary>
+            Pobierz listę EmployeeRise
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeRiseController.GetEmployeeRise(System.Int64)">
+            <summary>
+            Pobierz EmployeeRise o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeRiseController.PostEmployeeRise(ServerAPI.Models.EmployeeRise)">
+            <summary>
+            Dodaj do listy EmployeeRise
+            </summary>
+            <param name="employeeRise"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeeRiseController.DeleteEmployeeRise(System.Int64)">
+            <summary>
+            Usuń z listy EmployeeRise
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeesController.GetEmployees">
+            <summary>
+            Pobierz listę Employee
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeesController.GetEmployees(System.Int64)">
+            <summary>
+            Pobierz Employee o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeesController.PostEmployees(ServerAPI.Models.Employees)">
+            <summary>
+            Dodaj do listy Employee
+            </summary>
+            <param name="employees"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.EmployeesController.DeleteEmployees(System.Int64)">
+            <summary>
+            Usuń z listy Employee
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemCategoryController.GetItemCategory">
+            <summary>
+            Pobierz listę ItemCategory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemCategoryController.GetItemCategory(System.Int64)">
+            <summary>
+            Pobierz ItemCategory o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemCategoryController.PostItemCategory(ServerAPI.Models.ItemCategory)">
+            <summary>
+            Dodaj do listy ItemCategory
+            </summary>
+            <param name="itemCategory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemCategoryController.DeleteItemCategory(System.Int64)">
+            <summary>
+            Usuń z listy ItemCategory
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemController.GetItem">
+            <summary>
+            Pobierz listę Item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemController.GetItem(System.Int64)">
+            <summary>
+            Pobierz Item o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemController.PostItem(ServerAPI.Models.Item)">
+            <summary>
+            Dodaj do listy Item
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemController.DeleteItem(System.Int64)">
+            <summary>
+            Usuń z listy Item
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemTypeController.GetItemType">
+            <summary>
+            Pobierz listę ItemType
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemTypeController.GetItemType(System.Int64)">
+            <summary>
+            Pobierz ItemType o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemTypeController.PostItemType(ServerAPI.Models.ItemType)">
+            <summary>
+            Dodaj do listy ItemType
+            </summary>
+            <param name="itemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.ItemTypeController.DeleteItemType(System.Int64)">
+            <summary>
+            Usuń z listy ItemType
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.TransactionController.GetTransactions">
+            <summary>
+            Pobierz listę Transactions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.TransactionController.GetTransactions(System.Int64)">
+            <summary>
+            Pobierz Transaction o wybranym ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.TransactionController.PostTransactions(ServerAPI.Models.Transactions)">
+            <summary>
+            Dodaj do listy Transactions
+            </summary>
+            <param name="transactions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerAPI.Controllers.TransactionController.DeleteTransactions(System.Int64)">
+            <summary>
+            Usuń z listy Transactions
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
