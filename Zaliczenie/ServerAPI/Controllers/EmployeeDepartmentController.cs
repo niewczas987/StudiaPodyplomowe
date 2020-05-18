@@ -118,8 +118,16 @@ namespace ServerAPI.Controllers
                 _logger.LogWarning("There's no EmployeeDepartment with ID:"+id);
                 return NotFound();
             }
-
-            _context.EmployeeDepartment.Remove(employeeDepartment);
+            try
+            {
+                _context.EmployeeDepartment.Remove(employeeDepartment);
+            }
+            catch
+            {
+                _logger.LogError("Record is already in use. You can't delete used records.");
+            }
+            
+            
             await _context.SaveChangesAsync();
             _logger.LogInformation("EmployeeDepartment with ID:" + id + " was deleted.");
             return employeeDepartment;

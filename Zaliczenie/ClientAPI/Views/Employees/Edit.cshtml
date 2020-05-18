@@ -1,0 +1,68 @@
+﻿@model ClientAPI.Models.Employees
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edycja danych pracownika</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Imię</label>
+                <input asp-for="Name" class="form-control" value="@ViewBag.Employee.Name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label">Nazwisko</label>
+                <input asp-for="Surname" class="form-control" value="@ViewBag.Employee.Surname" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label">Wiek</label>
+                <input asp-for="Age" class="form-control" value="@ViewBag.Employee.Age"/>
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position" class="control-label">Stanowisko</label>
+                <select asp-for="Position" class="form-control" asp-items="@(new SelectList(@ViewBag.ListOfPositions,"Id","PositionName",@ViewBag.Employee.Position))"><</select>
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Department" class="control-label">Dział</label>
+                <select asp-for="Department" class="form-control" asp-items="@(new SelectList(@ViewBag.ListOfDepartments,"Id","DepartmentName",@ViewBag.Employee.Department))"><</select>
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label">Wynagrodzenie</label>
+                <input asp-for="Salary" class="form-control" value="@ViewBag.Employee.Salary"/>
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label">Miasto</label>
+                <input asp-for="City" class="form-control" value="@ViewBag.Employee.City"/>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">Adres</label>
+                <input asp-for="Address" class="form-control" value="@ViewBag.Employee.Address"/>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powrót do listy pracowników</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
