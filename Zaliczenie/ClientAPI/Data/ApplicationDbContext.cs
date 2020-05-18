@@ -16,5 +16,6 @@ namespace ClientAPI.Data
         public DbSet<ClientAPI.Models.EmployeeDepartment> EmployeeDepartment { get; set; }
         public DbSet<ClientAPI.Models.Employees> Employees { get; set; }
         public DbSet<ClientAPI.Models.EmployeeGrade> EmployeeGrade { get; set; }
+        public DbSet<ClientAPI.Models.EmployeePosition> EmployeePosition { get; set; }
     }
 }

@@ -1,0 +1,23 @@
+﻿@model ClientAPI.Models.EmployeePosition
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły stanowiska</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Stanowisko
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PositionName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+    <a asp-action="Index">Powrót do listy stanowisk</a>
+</div>

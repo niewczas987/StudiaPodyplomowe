@@ -1,12 +1,11 @@
 ﻿@model ClientAPI.Models.EmployeeGrade
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edytuj ocenę";
 }
 
-<h1>Edit</h1>
+<h1>Edytuj ocenę</h1>
 
-<h4>EmployeeGrade</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,12 +13,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Idemployee" class="control-label"></label>
-                <select asp-for="Idemployee" class="form-control" asp-items="@(new SelectList(@ViewBag.Employees,"Id","Name"))"><</select>
+                <label asp-for="Idemployee" class="control-label">Imię pracownika</label>
+                <select asp-for="Idemployee" class="form-control" asp-items="@(new SelectList(@ViewBag.Employees,"Id","Name", @ViewBag.EmployeeGrade.Idemployee))"><</select>
                 <span asp-validation-for="Idemployee" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Value" class="control-label"></label>
+                <label asp-for="Value" class="control-label">Ocena</label>
                 <select asp-for="Value" class="form-control">
                     <option value="1">★</option>
                     <option value="2">★★</option>
@@ -31,8 +30,8 @@
                 <span asp-validation-for="Value" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TimeStamp" class="control-label"></label>
-                <input asp-for="TimeStamp" class="form-control" />
+                <label asp-for="TimeStamp" class="control-label">Data</label>
+                <input asp-for="TimeStamp" class="form-control" value="@ViewBag.EmployeeGrade.TimeStamp"/>
                 <span asp-validation-for="TimeStamp" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,7 +42,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Powrót do listy ocen</a>
 </div>
 
 @section Scripts {

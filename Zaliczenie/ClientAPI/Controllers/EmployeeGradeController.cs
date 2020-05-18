@@ -114,6 +114,9 @@ namespace ClientAPI.Controllers
             var result = await _service.Client.GetAsync("/api/Employees");
             var employees = result.Content.ReadAsStringAsync().Result;
             ViewBag.Employees = JsonConvert.DeserializeObject<List<Employees>>(employees);
+            result = await _service.Client.GetAsync("/api/EmployeeGrade/"+id);
+            var employeeGrade = result.Content.ReadAsStringAsync().Result;
+            ViewBag.EmployeeGrade = JsonConvert.DeserializeObject<EmployeeGrade>(employeeGrade);
             return View();
         }
 

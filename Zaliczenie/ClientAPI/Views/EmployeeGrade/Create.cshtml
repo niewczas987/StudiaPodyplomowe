@@ -1,7 +1,7 @@
 ﻿@model ClientAPI.Models.EmployeeGrade
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Dodaj ocenę pracownika";
 }
 
 <h1>Dodaj nową ocenę</h1>
@@ -17,7 +17,7 @@
                 <span asp-validation-for="Idemployee" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Value" class="control-label"></label>
+                <label asp-for="Value" class="control-label">Ocena</label>
                 <select asp-for="Value" class="form-control">
                     <option value="1">★</option>
                     <option value="2">★★</option>
@@ -29,19 +29,19 @@
                 <span asp-validation-for="Value" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TimeStamp" class="control-label"></label>
+                <label asp-for="TimeStamp" class="control-label">Data</label>
                 <input asp-for="TimeStamp" class="form-control" />
                 <span asp-validation-for="TimeStamp" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Powrót do listy ocen</a>
 </div>
 
 @section Scripts {

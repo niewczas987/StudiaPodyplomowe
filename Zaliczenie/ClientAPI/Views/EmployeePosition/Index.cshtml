@@ -1,19 +1,19 @@
-﻿@model IEnumerable<ClientAPI.Models.EmployeeDepartment>
+﻿@model IEnumerable<ClientAPI.Models.EmployeePosition>
 
 @{
-    ViewData["Title"] = "Lista działów pracownicych";
+    ViewData["Title"] = "Stanowiska";
 }
 
-    <h1>Lista działów pracownicych</h1>
+<h1>Stanowiska</h1>
 
 <p>
-    <a asp-action="Create">Dodaj nowy dział</a>
+    <a asp-action="Create">Dodaj nowe stanowisko</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Dział
+                Stanowisko
             </th>
             <th></th>
         </tr>
@@ -22,7 +22,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DepartmentName)
+                @Html.DisplayFor(modelItem => item.PositionName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |

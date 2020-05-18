@@ -1,25 +1,25 @@
 ﻿@model IEnumerable<ClientAPI.Models.EmployeeGrade>
 
 @{
-    ViewData["Title"] = "ocany pracowników";
+    ViewData["Title"] = "Oceny pracowników";
 }
 
 <h1>Oceny pracowników</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Dodaj nową ocenę</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Idemployee)
+                Id pracownika
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Value)
+                Ocena
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TimeStamp)
+                Data dodania
             </th>
             <th></th>
         </tr>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.TimeStamp)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj ocenę</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły oceny</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń ocenę</a>
             </td>
         </tr>
 }

@@ -1,0 +1,27 @@
+﻿@model ClientAPI.Models.EmployeePosition
+
+@{
+    ViewData["Title"] = "Usuń stanowisko";
+}
+
+<h1>Usuń stanowisko</h1>
+
+<h3>Czy jesteś pewny, ze chcesz usunąć to stanowisko?</h3>
+<div>
+    <h4>EmployeePosition</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Stanowisko
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PositionName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy stanowisk</a>
+    </form>
+</div>
