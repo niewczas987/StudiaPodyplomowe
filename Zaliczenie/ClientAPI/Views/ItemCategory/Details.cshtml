@@ -1,0 +1,23 @@
+﻿@model ClientAPI.Models.ItemCategory
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły kategorii</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Kategoria
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+    <a asp-action="Index">Powrót do listy kategorii</a>
+</div>

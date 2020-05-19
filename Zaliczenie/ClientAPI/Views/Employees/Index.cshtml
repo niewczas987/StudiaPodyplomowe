@@ -67,9 +67,13 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" asp-controller="Employees" asp-action="Details">Edytuj</a> |
-                <a asp-action="Details" asp-route-id="@item.Id" asp-controller="Employees" asp-action="Details">Szczegóły</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                @if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id" asp-controller="Employees" asp-action="Details">Edytuj</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id" asp-controller="Employees" asp-action="Details">Szczegóły</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                }
+                
             </td>
         </tr>
 }

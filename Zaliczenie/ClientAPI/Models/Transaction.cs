@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ClientAPI.Models
 {
-    public class Transactions
+    public class Transaction
     {
         public long Id { get; set; }
         public DateTime? TimeStamp { get; set; }

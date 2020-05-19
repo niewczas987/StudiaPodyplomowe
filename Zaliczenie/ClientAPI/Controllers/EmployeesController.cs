@@ -50,27 +50,27 @@ namespace ClientAPI.Controllers
         // GET: Employees/Details/5
         public async Task<ActionResult> Details(int id)
         {
-            _logger.LogInformation("Downloading details of user with ID:" + id);
-            Employees employee = new Employees();
+            _logger.LogInformation("Downloading details of Employees with ID:" + id);
+            Employees employees = new Employees();
             var result = await _service.Client.GetAsync("/api/Employees/" + id);
             if(result.IsSuccessStatusCode)
             {
-                _logger.LogInformation("Downloaded details of user with ID:" + id);
-                var downloadedEmployee = result.Content.ReadAsStringAsync().Result;
-                employee = JsonConvert.DeserializeObject<Employees>(downloadedEmployee);
+                _logger.LogInformation("Downloaded details of Employees with ID:" + id);
+                var downloadedEmployees = result.Content.ReadAsStringAsync().Result;
+                employees = JsonConvert.DeserializeObject<Employees>(downloadedEmployees);
                 
             }
             else
             {
-                _logger.LogInformation("Downloading details of user with ID:" + id + " ended with error. ErrorCode:"+result.StatusCode);
+                _logger.LogInformation("Downloading details of Employees with ID:" + id + " ended with error. ErrorCode:"+result.StatusCode);
             }
-            return View(employee);
+            return View(employees);
         }
 
         // GET: Employees/Create
         public async Task<ActionResult> Create()
         {
-            _logger.LogInformation("Entrying data to Create new Employee");
+            _logger.LogInformation("Entrying data to Create new Employees");
             var result = await _service.Client.GetAsync("/api/EmployeePosition");
             var emplPosition = result.Content.ReadAsStringAsync().Result;
             ViewBag.listOfPositions = JsonConvert.DeserializeObject<List<EmployeePosition>>(emplPosition);
@@ -84,26 +84,26 @@ namespace ClientAPI.Controllers
         // POST: Employees/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Employees employee)
+        public async Task<ActionResult> Create(Employees employees)
         {
             try
             {
-                var postEmployee = JsonConvert.SerializeObject(employee);
-                var result = await _service.Client.PostAsync("/api/Employees", new StringContent(postEmployee, Encoding.UTF8, "application/json"));
+                var postEmployees = JsonConvert.SerializeObject(employees);
+                var result = await _service.Client.PostAsync("/api/Employees", new StringContent(postEmployees, Encoding.UTF8, "application/json"));
                 if(result.IsSuccessStatusCode)
                 {
-                    _logger.LogInformation("Employee posted succesfully");
+                    _logger.LogInformation("Employees posted succesfully");
                 }
                 else
                 {
-                    _logger.LogInformation("Employee not posted. ErrorCode:" + result.StatusCode);
+                    _logger.LogInformation("Employees not posted. ErrorCode:" + result.StatusCode);
                 }
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                _logger.LogWarning("Error during posting Employee");
+                _logger.LogWarning("Error during posting Employees");
                 return View();
             }
         }
@@ -111,7 +111,7 @@ namespace ClientAPI.Controllers
         // GET: Employees/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
-            _logger.LogInformation("Entrying data to Create new Employee");
+            _logger.LogInformation("Entrying data to Create new Employees");
             var result = await _service.Client.GetAsync("/api/EmployeePosition");
             var emplPosition = result.Content.ReadAsStringAsync().Result;
             ViewBag.listOfPositions = JsonConvert.DeserializeObject<List<EmployeePosition>>(emplPosition);
@@ -119,34 +119,34 @@ namespace ClientAPI.Controllers
             var emplDepartment = result.Content.ReadAsStringAsync().Result;
             ViewBag.listOfDepartments = JsonConvert.DeserializeObject<List<EmployeeDepartment>>(emplDepartment);
             result = await _service.Client.GetAsync("/api/Employees/" + id);
-            var employee = result.Content.ReadAsStringAsync().Result;
-            ViewBag.Employee = JsonConvert.DeserializeObject<Employees>(employee);
+            var employees = result.Content.ReadAsStringAsync().Result;
+            ViewBag.Employee = JsonConvert.DeserializeObject<Employees>(employees);
             return View();
         }
 
         // POST: Employees/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, Employees employee)
+        public async Task<ActionResult> Edit(int id, Employees employees)
         {
             try
             {
-                var postEmployee = JsonConvert.SerializeObject(employee);
-                var result = await _service.Client.PutAsync("/api/Employees/"+id, new StringContent(postEmployee, Encoding.UTF8, "application/json"));
+                var postEmployees = JsonConvert.SerializeObject(employees);
+                var result = await _service.Client.PutAsync("/api/Employees/"+id, new StringContent(postEmployees, Encoding.UTF8, "application/json"));
                 if (result.IsSuccessStatusCode)
                 {
-                    _logger.LogInformation("Employee edited succesfully");
+                    _logger.LogInformation("Employees edited succesfully");
                 }
                 else
                 {
-                    _logger.LogInformation("Employee not edited. ErrorCode:" + result.StatusCode);
+                    _logger.LogInformation("Employees not edited. ErrorCode:" + result.StatusCode);
                 }
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                _logger.LogWarning("Error during posting Employee");
+                _logger.LogWarning("Error during posting Employees");
                 return View();
             }
         }
@@ -154,45 +154,45 @@ namespace ClientAPI.Controllers
         // GET: Employees/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
-            _logger.LogInformation("Deleting information about user with ID:" + id);
-            Employees employee = new Employees();
+            _logger.LogInformation("Deleting information about Employees with ID:" + id);
+            Employees employees = new Employees();
             var result = await _service.Client.GetAsync("/api/Employees/" + id);
             if (result.IsSuccessStatusCode)
             {
-                _logger.LogInformation("Information about user with ID:" + id);
-                var downloadedEmployee = result.Content.ReadAsStringAsync().Result;
-                employee = JsonConvert.DeserializeObject<Employees>(downloadedEmployee);
+                _logger.LogInformation("Information about Employees with ID:" + id);
+                var downloadedEmployees = result.Content.ReadAsStringAsync().Result;
+                employees = JsonConvert.DeserializeObject<Employees>(downloadedEmployees);
 
             }
             else
             {
-                _logger.LogInformation("Deleting information about user with ID:" + id + " ended with error. ErrorCode:" + result.StatusCode);
+                _logger.LogInformation("Deleting information about Employees with ID:" + id + " ended with error. ErrorCode:" + result.StatusCode);
             }
-            return View(employee);
+            return View(employees);
         }
 
         // POST: Employees/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(int id, Employees employee)
+        public async Task<ActionResult> Delete(int id, Employees employees)
         {
             try
             {
                 var result = await _service.Client.DeleteAsync("/api/Employees/"+id);
                 if (result.IsSuccessStatusCode)
                 {
-                    _logger.LogInformation("Employee deleted succesfully");
+                    _logger.LogInformation("Employees deleted succesfully");
                 }
                 else
                 {
-                    _logger.LogInformation("Employee not deleted. ErrorCode:" + result.StatusCode);
+                    _logger.LogInformation("Employees not deleted. ErrorCode:" + result.StatusCode);
                 }
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                _logger.LogWarning("Error during deleting Employee");
+                _logger.LogWarning("Error during deleting Employees");
                 return View();
             }
         }

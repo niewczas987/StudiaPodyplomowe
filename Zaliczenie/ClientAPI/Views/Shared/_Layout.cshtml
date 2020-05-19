@@ -19,19 +19,43 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Pracownicy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeDepartment" asp-action="Index">Działy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="EmployeePosition" asp-action="Index">Stanowiska</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeGrade" asp-action="Index">Oceny pracowników</a>
+                        <li class="dropdown" type="button">
+                            <a class="dropdown-toggle" type="button" style="padding:10px" aria-expanded="false" data-toggle="dropdown">Pracownicy<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Lista pracowników</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeDepartment" asp-action="Index">Działy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="EmployeePosition" asp-action="Index">Stanowiska</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="EmployeeGrade" asp-action="Index">Oceny pracowników</a>
+                                </li>
                         </li>
                     </ul>
+                    @if(ViewContext.HttpContext.User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown" type="button">
+                            <a class="dropdown-toggle" type="button" style="padding:10px" aria-expanded="false" data-toggle="dropdown">Przedmioty <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="Index">Lista przedmiotów</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ItemCategory" asp-action="Index">Kategorie przedmiotów</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ItemType" asp-action="Index">Typy przedmiotów</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Transaction" asp-action="Index" style="padding:10px">Tranzakcje</a>
+                    }
+
+                    
                 </div>
             </div>
         </nav>

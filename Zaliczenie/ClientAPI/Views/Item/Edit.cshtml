@@ -1,0 +1,48 @@
+﻿@model ClientAPI.Models.Item
+
+@{
+    ViewData["Title"] = "Edytuj";
+}
+
+<h1>Edytuj dane przedmiotu</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id"/>
+            <div class="form-group">
+                <label asp-for="ItemName" class="control-label">Nazwa przedmiotu</label>
+                <input asp-for="ItemName" class="form-control" value="@ViewBag.Item.ItemName"/>
+                <span asp-validation-for="ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemPrice" class="control-label">Cena</label>
+                <input asp-for="ItemPrice" class="form-control" value="@ViewBag.Item.ItemPrice"/>
+                <span asp-validation-for="ItemPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemCategory" class="control-label">Kategoria</label>
+                <select asp-for="ItemCategory" class="form-control" asp-items="@(new SelectList(@ViewBag.listOfCategories,"Id","CategoryName",ViewBag.Item.ItemCategory))"><</select>
+                <span asp-validation-for="ItemCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemType" class="control-label">Typ</label>
+                <select asp-for="ItemType" class="form-control" asp-items="@(new SelectList(@ViewBag.listOfTypes,"Id","TypeName",ViewBag.Item.ItemType))"><</select>
+                <span asp-validation-for="ItemType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz zmiany" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powrót do listy przedmiotów</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,51 @@
+﻿@model ClientAPI.Models.Transaction
+
+@{
+    ViewData["Title"] = "Usuń";
+}
+
+<h1>Usuń tranzakcję</h1>
+
+<h3>Czy na pewno chcesz usunąć poniższą tranzakcję?</h3>
+<div>
+    <h4>Transaction</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Data
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TimeStamp)
+        </dd>
+        <dt class = "col-sm-2">
+            Nazwa przedmiotu
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdItemNavigation.ItemName)
+        </dd>
+        <dt class = "col-sm-2">
+            Cena
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            Ilość
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            Cena całkowita
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy tranzakcji</a>
+    </form>
+</div>

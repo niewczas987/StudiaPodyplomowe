@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ClientAPI.Models.Item>
+
+@{
+    ViewData["Title"] = "Przedmioty";
+}
+
+<h1>Przedmioty</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowy przedmiot</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nazwa
+            </th>
+            <th>
+                Cena
+            </th>
+            <th>
+                Kategoria
+            </th>
+            <th>
+                Typ
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemCategoryNavigation.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemTypeNavigation.TypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> 
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

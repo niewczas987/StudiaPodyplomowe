@@ -1,0 +1,53 @@
+﻿@model ClientAPI.Models.Transaction
+
+@{
+    ViewData["Title"] = "Edytuj tranzakcje";
+}
+
+<h1>Edytuj tranzakcje</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TimeStamp" class="control-label">Data</label>
+                <input asp-for="TimeStamp" class="form-control" value="@ViewBag.Transaction.TimeStamp"/>
+                <span asp-validation-for="TimeStamp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdItem" class="control-label">Przedmiot</label>
+                <select asp-for="IdItem" class="form-control" asp-items="@(new SelectList(@ViewBag.Item,"Id","ItemName",@ViewBag.Transaction.IdItem))"><</select>
+                <span asp-validation-for="IdItem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label">Cena</label>
+                <input asp-for="UnitPrice" class="form-control" value="@ViewBag.Transaction.UnitPrice"/>
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label">Ilość</label>
+                <input asp-for="Amount" class="form-control" value="@ViewBag.Transaction.Amount"/>
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPrice" class="control-label">Cena całkowita</label>
+                <input asp-for="TotalPrice" class="form-control" value="@ViewBag.Transaction.TotalPrice"/>
+                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powrót do listy tranzakcji</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

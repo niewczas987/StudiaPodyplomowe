@@ -10,7 +10,7 @@ namespace ClientAPI.Models
     {
         public Item()
         {
-            Transactions = new HashSet<Transactions>();
+            Transactions = new HashSet<Transaction>();
         }
 
         public long Id { get; set; }
@@ -22,6 +22,6 @@ namespace ClientAPI.Models
         public virtual ItemCategory ItemCategoryNavigation { get; set; }
         public virtual ItemType ItemTypeNavigation { get; set; }
         [JsonIgnore]
-        public virtual ICollection<Transactions> Transactions { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

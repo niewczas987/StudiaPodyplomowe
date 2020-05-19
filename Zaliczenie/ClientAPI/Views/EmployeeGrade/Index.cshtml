@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                Id pracownika
+                Imię pracownika
             </th>
             <th>
                 Ocena
@@ -28,7 +28,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Idemployee)
+                @Html.DisplayFor(modelItem => item.IdemployeeNavigation.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Value)
@@ -37,9 +37,12 @@
                 @Html.DisplayFor(modelItem => item.TimeStamp)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj ocenę</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły oceny</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Usuń ocenę</a>
+                @if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                }
             </td>
         </tr>
 }

@@ -1,10 +1,10 @@
-﻿@model ClientAPI.Models.EmployeePosition
+﻿@model ClientAPI.Models.ItemType
 
 @{
-    ViewData["Title"] = "Edytuj stanowiska";
+    ViewData["Title"] = "Edytuj";
 }
 
-<h1>Edytuj stanowiska</h1>
+<h1>Edytuj typ przedmiotu</h1>
 
 <hr />
 <div class="row">
@@ -13,9 +13,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="PositionName" class="control-label">Stanowisko</label>
-                <input asp-for="PositionName" class="form-control" value="@ViewBag.EmployeePosition.PositionName"/>
-                <span asp-validation-for="PositionName" class="text-danger"></span>
+                <label asp-for="TypeName" class="control-label">Nazwa typu przedmiotu</label>
+                <input asp-for="TypeName" class="form-control" value="@ViewBag.ItemType.TypeName"/>
+                <span asp-validation-for="TypeName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Zapisz zmiany" class="btn btn-primary" />
@@ -25,7 +25,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Powrót do listy stanowisk</a>
+    <a asp-action="Index">Powrót do listy typów</a>
 </div>
 
 @section Scripts {
